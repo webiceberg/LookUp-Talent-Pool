@@ -1,0 +1,263 @@
+/* Base styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+  }
+  
+  .app {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  /* Header */
+  .header {
+    background-color: #0056b3;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 4px;
+    margin-bottom: 20px;
+  }
+
+  /* Pagination styles */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  gap: 8px;
+}
+
+.pagination-button,
+.pagination-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #333;
+  transition: all 0.2s ease;
+}
+
+.pagination-button:hover,
+.pagination-page:hover {
+  background-color: #e0e0e0;
+}
+
+.pagination-button:disabled,
+.pagination-page:disabled,
+.pagination-page.active {
+  cursor: default;
+}
+
+.pagination-button:disabled,
+.pagination-page:disabled {
+  color: #999;
+  background-color: #f9f9f9;
+}
+
+.pagination-page.active {
+  color: white;
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.pagination-pages {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.pagination-ellipsis {
+  color: #666;
+  user-select: none;
+}
+  
+  .header h1 {
+    margin-bottom: 5px;
+  }
+  
+  /* Content */
+  .content {
+    background-color: white;
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Filters */
+  .filters {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .filters h2 {
+    margin-bottom: 15px;
+  }
+  
+  .filter-group {
+    margin-bottom: 15px;
+  }
+  
+  .filter-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  
+  .filter-group select,
+  .filter-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  .filter-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .apply-button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .reset-button {
+    background-color: #f2f2f2;
+    color: #333;
+    border: 1px solid #ddd;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  /* Applicant List */
+  .applicant-list {
+    margin-top: 20px;
+  }
+  
+  .applicant-list h2 {
+    margin-bottom: 15px;
+  }
+  
+  .applicant-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .applicant-table th,
+  .applicant-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .applicant-table th {
+    background-color: #f2f2f2;
+    font-weight: 600;
+  }
+  
+  .applicant-table tr:hover {
+    background-color: #f9f9f9;
+  }
+  
+  .applicant-table tr.selected {
+    background-color: #e6f7ff;
+  }
+  
+  /* Actions */
+  .actions {
+    margin: 20px 0;
+  }
+  
+  .contact-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .contact-button:disabled {
+    background-color: #a3d7ae;
+    cursor: not-allowed;
+  }
+  
+  /* Loading and Error States */
+  .loading, .error, .no-results {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .error {
+    color: #dc3545;
+  }
+  /* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .pagination-button {
+    background-color: #0056b3;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  
+  .pagination-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  /* Filter loading state */
+    .filter-loading {
+    margin-top: 10px;
+    font-style: italic;
+    color: #888;
+  }
+  .pagination-info {
+    margin: 0 10px;
+    font-weight: 600;
+  }
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .filter-actions {
+      flex-direction: column;
+    }
+    
+    .applicant-table {
+      display: block;
+      overflow-x: auto;
+    }
+  }
