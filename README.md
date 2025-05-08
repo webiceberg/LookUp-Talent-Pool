@@ -6,7 +6,8 @@ A robust, scalable application for managing and filtering an applicant database 
 
 - **Smart API Integration**: Intelligently fetches and caches applicant data using advanced discovery methods
 - **Comprehensive Filtering**: Filter applicants by location and driver's license, with special handling for missing values
-- **Responsive UI**: Clean React interface with dynamic filter options
+- **Server-Side Pagination**: Efficiently handles large datasets by paginating results on the server
+- **Responsive UI**: Clean React interface with dynamic filter options and pagination controls
 - **Batch Processing**: Efficiently handles large datasets (up to 25,000+ applicants) using batch operations
 - **Mock Contact System**: Simulated functionality for contacting selected applicants
 - **Resilient Error Handling**: Gracefully handles API failures and edge cases
@@ -20,6 +21,7 @@ The backend follows a clean, modular architecture:
 - **Routes**: RESTful API endpoints with clear separation of concerns
 - **Controllers**: Lightweight request handlers focused on HTTP concerns
 - **Services**: Core business logic with smart caching and filtering capabilities
+- **Pagination**: Comprehensive pagination component with flexible display options
 - **Data Access**: Intelligent API discovery with primary and fallback methods
 
 ### Frontend Architecture
@@ -32,6 +34,25 @@ The frontend uses a component-based React architecture with:
 - **API Service**: Centralized communication with the backend
 
 ## Technical Details
+
+### Pagination System
+
+The application implements a robust server-side pagination system:
+
+1. **Server-Side Implementation**: 
+  - Calculates pagination metadata (totalItems, totalPages, etc.)
+  - Returns only the relevant subset of data for the requested page
+  - Maintains consistent filtering across pages
+
+2. **Frontend Controls**:
+  - Intuitive navigation with page numbers and previous/next buttons
+  - Visual indicators for current page and disabled states
+  - Automatic reset to first page when filters change
+
+3. **Performance Benefits**:
+  - Reduces data transfer and browser memory usage
+  - Improves rendering performance
+  - Scales efficiently for large datasets
 
 ### API Discovery System
 
@@ -48,9 +69,6 @@ The application uses a sophisticated dual-approach API discovery system:
 - Intelligent fallback mechanisms for missing data
 - Normalized data model with consistent handling of N/A values
 - Memory-efficient data handling for large datasets
-
-Here's the second half of the README file that you can copy directly:
-
 
 ## Setup Instructions
 
@@ -126,6 +144,7 @@ The test suite uses Jest with mocked API responses for reliable, deterministic t
 ### Performance Considerations
 
 - **Caching**: Implements a time-based caching system to minimize redundant API calls
+- **Pagination**: Server-side pagination reduces data transfer and improves performance
 - **Batch Processing**: Fetches data in optimized batches to balance speed and server load
 - **Parallel Requests**: Uses Promise.all for concurrent processing within safe batch limits
 - **Early Termination**: Intelligently stops processing when patterns indicate no more data is available
